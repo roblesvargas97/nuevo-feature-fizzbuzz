@@ -44,3 +44,22 @@ describe("Explorers get amount of explorers",  () => {
     });
 
 });
+
+describe("Gat Node Explorers by name",  () => {
+    test("Expect 200",async (done) => {
+        const parameter = "node";
+        const response = await request(app).get("/v1/explorers/usernames/" + parameter);
+        expect(response.status).toBe(200);
+        done();
+    });
+
+    test("Amount explorers in node by name ", async (done) => {
+        const parameter = "node";
+        const response = await request(app).get("/v1/explorers/" + parameter);
+        const amountExplorersInNode = response.body.length;
+        const reponseAmount = await request(app).get("/v1/explorers/usernames/" + parameter);
+        expect(reponseAmount.body.explorers.length).toEqual(amountExplorersInNode);
+        done();
+    });
+
+});
