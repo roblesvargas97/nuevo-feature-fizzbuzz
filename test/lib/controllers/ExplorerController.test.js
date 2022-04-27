@@ -12,6 +12,10 @@ describe("Test for Explorer controller", () => {
         );
     });
 
+    test("get Explorers in node by name" , () => {
+        expect(ExplorerController.getNamesExplorersByMission("node").length).toEqual(ExplorerController.getExplorersAmonutByMission("node"));
+    });
+
     test("Get amount of explorer in node", () => {
         const numberExplorersInNode =
       ExplorerController.getExplorerByMission("node").length;
