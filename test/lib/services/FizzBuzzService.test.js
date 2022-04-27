@@ -6,8 +6,6 @@ describe("Tests for FizzBuzzService", () => {
     const explorers = Reader.readJsonFile(process.cwd() + "/" + "explorers.json");
     const explorersInNode = ExplorerService.filterByMission(explorers, "node");
 
-    console.debug(explorersInNode);
-
     test(" Testing 4th explorer in node ", () => {
         expect(
             FizzBussService.applyValidationInExplorer(explorersInNode[3]).trick
