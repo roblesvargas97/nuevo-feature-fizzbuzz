@@ -39,7 +39,7 @@ describe("Explorers get amount of explorers",  () => {
         const response = await request(app).get("/v1/explorers/" + parameter);
         const amountExplorersInNode = response.body.length;
         const reponseAmount = await request(app).get("/v1/explorers/amount/" + parameter);
-        expect(reponseAmount.body.amount).toEqual(amountExplorersInNode);
+        expect(reponseAmount.body.quantity).toEqual(amountExplorersInNode);
         done();
     });
 
