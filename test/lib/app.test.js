@@ -9,14 +9,14 @@ describe("Test the root path ", () => {
     });
 });
 
-describe("Explorer mission params", () => {
-    test("should ", async (done) => {
+describe("Explorers get mission", () => {
+    test("expect 200 status ", async (done) => {
         const response = await request(app).get("/v1/explorers/node");
         expect(response.statusCode).toBe(200);
         done();
     });
 
-    test("should ", async (done) => {
+    test("each element should have node mission", async (done) => {
         const parameter = "node";
         const response = await request(app).get("/v1/explorers/" + parameter);
         response.body.forEach(element => {
@@ -24,4 +24,23 @@ describe("Explorer mission params", () => {
         });
         done();
     });
+});
+
+describe("Explorers get amount of explorers",  () => {
+    test("Expect 200",async (done) => {
+        const parameter = "node";
+        const response = await request(app).get("/v1/explorers/amount/" + parameter);
+        expect(response.status).toBe(200);
+        done();
+    });
+
+    test("Amount explorers in node mission ", async (done) => {
+        const parameter = "node";
+        const response = await request(app).get("/v1/explorers/" + parameter);
+        const amountExplorersInNode = response.body.length;
+        const reponseAmount = await request(app).get("/v1/explorers/amount/" + parameter);
+        expect(reponseAmount.body.amount).toEqual(amountExplorersInNode);
+        done();
+    });
+
 });
