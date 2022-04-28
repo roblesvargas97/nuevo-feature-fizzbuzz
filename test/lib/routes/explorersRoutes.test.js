@@ -17,10 +17,11 @@ describe("Explorers get mission", () => {
         done();
     });
 
-    test("get an error 404 not found", async () => {
+    test("get an error 404 not found", async (done) => {
         const parameter = "php";
         const response = await request(app).get("/v1/explorers/"+parameter);
         expect(response.statusCode).toBe(404);
+        done();
     });
 });
 
@@ -39,6 +40,12 @@ describe("Explorers get amount of explorers",  () => {
         const reponseAmount = await request(app).get("/v1/explorers/amount/" + parameter);
         expect(reponseAmount.body.quantity).toEqual(amountExplorersInNode);
         done();
+    });
+
+    test("get an error 404 not found", async () => {
+        const parameter = "php";
+        const response = await request(app).get("/v1/explorers/usernames/"+parameter);
+        expect(response.statusCode).toBe(404);
     });
 
 });
@@ -60,10 +67,11 @@ describe("Gat Node Explorers by name",  () => {
         done();
     });
 
-    test("get an error 404 not found", async () => {
+    test("get an error 404 not found", async (done) => {
         const parameter = "php";
         const response = await request(app).get("/v1/explorers/usernames/"+parameter);
         expect(response.statusCode).toBe(404);
+        done();
     });
 
 });
