@@ -12,7 +12,7 @@ describe("Test for Explorer controller", () => {
         );
     });
 
-    test("getExplorerByMission should return an error", () => {
+    test("getExplorerByMission should return an error, when we don't find explorers", () => {
         try {
             ExplorerController.getExplorerByMission("php");
         } catch (error) {
@@ -23,6 +23,15 @@ describe("Test for Explorer controller", () => {
     test("get Explorers in node by name" , () => {
         expect(ExplorerController.getNamesExplorersByMission("node").length).toEqual(ExplorerController.getExplorersAmonutByMission("node"));
     });
+
+    test("getNamesExplorersByMission should return an error, when we don't find explorers", () => {
+        try {
+            ExplorerController.getNamesExplorersByMission("php");
+        } catch (error) {
+            expect(error.message).toBe("Explorers Names, Not Found");
+        }
+    });
+
 
     test("Get amount of explorer in node", () => {
         const numberExplorersInNode =
