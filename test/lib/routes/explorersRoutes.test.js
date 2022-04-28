@@ -16,6 +16,12 @@ describe("Explorers get mission", () => {
         });
         done();
     });
+
+    test("get an error 404 not found", async () => {
+        const parameter = "php";
+        const response = await request(app).get("/v1/explorers/"+parameter);
+        expect(response.statusCode).toBe(404);
+    });
 });
 
 describe("Explorers get amount of explorers",  () => {
