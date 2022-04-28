@@ -50,4 +50,12 @@ describe("Test for Explorer controller", () => {
         );
 
     });
+
+    test("getNamesExplorersByMission should return an error, when we don't find explorers", () => {
+        try {
+            ExplorerController.getExplorersAmonutByMission("php");
+        } catch (error) {
+            expect(error.message).toBe("Explorers Not Found");
+        }
+    });
 });
