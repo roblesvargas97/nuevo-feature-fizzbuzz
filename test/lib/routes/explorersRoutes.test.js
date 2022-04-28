@@ -19,7 +19,7 @@ describe("Explorers get mission", () => {
 
     test("get an error 404 not found", async (done) => {
         const parameter = "php";
-        const response = await request(app).get("/v1/explorers/"+parameter);
+        const response = await request(app).get("/v1/explorers/amount/"+parameter);
         expect(response.statusCode).toBe(404);
         done();
     });
