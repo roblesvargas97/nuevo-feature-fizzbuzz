@@ -2,7 +2,7 @@ const FizzBussService = require("../../../lib/services/FizzbuzzService");
 const ExplorerService = require("../../../lib/services/ExplorerService");
 const Reader = require("../../../lib/utils/Reader");
 
-describe("Tests for FizzBuzzService", () => {
+describe("Tests for FizzBuzzService applyValidationInExplorer", () => {
     const explorers = Reader.readJsonFile(process.cwd() + "/" + "explorers.json");
     const explorersInNode = ExplorerService.filterByMission(explorers, "node");
 
@@ -30,5 +30,31 @@ describe("Tests for FizzBuzzService", () => {
         expect(
             FizzBussService.applyValidationInExplorer(explorersInNode[4]).trick
         ).toBe("BUZZ");
+    });
+});
+
+describe("Test for FizzBuzz Service applyValidationInNumber", () => {
+    test(" applyValidationInNumber 15 should return FizzBuzz", () => {
+        expect(FizzBussService.applyValidationInNumber(15)).toBe("FIZZBUZZ");
+    });
+
+    test(" applyValidationInNumber 10 should return Buzz", () => {
+        expect(FizzBussService.applyValidationInNumber(10)).toBe("BUZZ");
+    });
+
+    test(" applyValidationInNumber 9 should return Fizz", () => {
+        expect(FizzBussService.applyValidationInNumber(9)).toBe("FIZZ");
+    });
+
+    test(" applyValidationInNumber 7 should return 7", () => {
+        expect(FizzBussService.applyValidationInNumber(7)).toBe(7);
+    });
+
+    test(" applyValidationInNumber 4.4 should return 4.4", () => {
+        expect(FizzBussService.applyValidationInNumber(4.4)).toBe(4.4);
+    });
+
+    test(" applyValidationInNumber -9 should return Fizz", () => {
+        expect(FizzBussService.applyValidationInNumber(-9)).toBe("FIZZ");
     });
 });
