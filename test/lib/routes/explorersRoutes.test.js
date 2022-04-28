@@ -60,4 +60,10 @@ describe("Gat Node Explorers by name",  () => {
         done();
     });
 
+    test("get an error 404 not found", async () => {
+        const parameter = "php";
+        const response = await request(app).get("/v1/explorers/usernames/"+parameter);
+        expect(response.statusCode).toBe(404);
+    });
+
 });
