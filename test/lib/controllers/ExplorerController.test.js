@@ -16,7 +16,7 @@ describe("Test for Explorer controller", () => {
         try {
             ExplorerController.getExplorerByMission("php");
         } catch (error) {
-            expect(error.message).toBe("Explorer Not Found");
+            expect(error.message).toBe("Explorers Not Found");
         }
     });
 
