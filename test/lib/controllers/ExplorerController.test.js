@@ -12,6 +12,14 @@ describe("Test for Explorer controller", () => {
         );
     });
 
+    test("getExplorerByMission should return an error", () => {
+        try {
+            ExplorerController.getExplorerByMission("php");
+        } catch (error) {
+            expect(error.message).toBe("Explorer Not Found");
+        }
+    });
+
     test("get Explorers in node by name" , () => {
         expect(ExplorerController.getNamesExplorersByMission("node").length).toEqual(ExplorerController.getExplorersAmonutByMission("node"));
     });
