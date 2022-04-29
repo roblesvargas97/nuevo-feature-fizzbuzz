@@ -91,6 +91,16 @@ Retorna la cantidad de los explorers de acuerdo al parametro.
 
 ![App Screenshot](https://i.imgur.com/8UrEotP.gif)
 
+## Diseño del Api
+```mermaid
+graph TD;
+    Reader-->ExplorerService;
+    FizzbuzzService;
+    ExplorerService-->ExplorerController
+    FizzbuzzService-->ExplorerController
+    ExplorerController-->Server
+```
+
 ## Aprendizaje
 
 - Pruebas Unitarias con Jest y Supertest.
