@@ -27,7 +27,7 @@ Instala las dependencias que requiere el proyecto:
 
 ## Aprendizaje
 
-- Pruebas Unitarias con Jest.
+- Pruebas Unitarias con Jest y Supertest.
 - TDD.
 - Uso de Express.
 - Aplicacion de Regex.
