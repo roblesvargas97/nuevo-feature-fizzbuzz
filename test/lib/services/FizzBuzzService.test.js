@@ -34,6 +34,15 @@ describe("Tests for FizzBuzzService applyValidationInExplorer", () => {
 });
 
 describe("Test for FizzBuzz Service applyValidationInNumber", () => {
+
+    test("getNumberFizzBuzz FizzBuzz should return an error, when the value is not a number", () => {
+        try {
+            FizzBussService.applyValidationInNumber("Hola");
+        } catch (error) {
+            expect(error.message).toBe("The value should be a number");
+        }
+    });
+
     test(" applyValidationInNumber 15 should return FizzBuzz", () => {
         expect(FizzBussService.applyValidationInNumber(15)).toBe("FIZZBUZZ");
     });

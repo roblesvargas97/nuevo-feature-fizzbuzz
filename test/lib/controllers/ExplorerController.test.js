@@ -14,26 +14,9 @@ describe("Test for Explorer controller", () => {
         );
     });
 
-    test("getExplorerByMission should return an error, when we don't find explorers", () => {
-        try {
-            ExplorerController.getExplorerByMission("php");
-        } catch (error) {
-            expect(error.message).toBe("Explorers Not Found");
-        }
-    });
-
     test("get Explorers in node by name" , () => {
         expect(ExplorerController.getNamesExplorersByMission("node").length).toEqual(ExplorerController.getExplorersAmonutByMission("node"));
     });
-
-    test("getNamesExplorersByMission should return an error, when we don't find explorers", () => {
-        try {
-            ExplorerController.getNamesExplorersByMission("php");
-        } catch (error) {
-            expect(error.message).toBe("Explorers Names, Not Found");
-        }
-    });
-
 
     test("Get amount of explorer in node", () => {
         const numberExplorersInNode =
@@ -51,22 +34,6 @@ describe("Test for Explorer controller", () => {
             numberExplorersInJava
         );
 
-    });
-
-    test("getExplorersAmonutByMission should return an error, when we don't find explorers", () => {
-        try {
-            ExplorerController.getExplorersAmonutByMission("php");
-        } catch (error) {
-            expect(error.message).toBe("Explorers Not Found");
-        }
-    });
-
-    test("getNumberFizzBuzz FizzBuzz should return an error, when the value is not a number", () => {
-        try {
-            ExplorerController.getNumberFizzBuzz("Hola");
-        } catch (error) {
-            expect(error.message).toBe("The value should be a number");
-        }
     });
 
     test("getNumberFizzBuzz 15 should return FizzBuzz", () => {

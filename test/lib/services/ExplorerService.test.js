@@ -29,4 +29,29 @@ describe("Test for ExplorerSeviceClass ", () => {
             ExplorerService.getExplorersUsernamesByMission(explorers, "node").length
         ).toEqual(numberOfExplorersInNode);
     });
+
+    test("getExplorerByMission should return an error, when we don't find explorers", () => {
+        try {
+            ExplorerService.filterByMission(explorers , "php");
+        } catch (error) {
+            expect(error.message).toBe("Explorers Not Found");
+        }
+    });
+
+    test("getNamesExplorersByMission should return an error, when we don't find explorers", () => {
+        try {
+            ExplorerService.getExplorersUsernamesByMission(explorers , "php");
+        } catch (error) {
+            expect(error.message).toBe("Explorers Not Found");
+        }
+    });
+
+    test("getExplorersAmonutByMission should return an error, when we don't find explorers", () => {
+        try {
+            ExplorerService.getAmountOfExplorersByMission(explorers,"php");
+        } catch (error) {
+            expect(error.message).toBe("Explorers Not Found");
+        }
+    });
+
 });
