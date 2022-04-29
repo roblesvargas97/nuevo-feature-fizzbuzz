@@ -3,7 +3,7 @@ const ExplorerService = require("../../../lib/services/ExplorerService");
 const Reader = require("../../../lib/utils/Reader");
 
 describe("Tests for FizzBuzzService applyValidationInExplorer", () => {
-    const explorers = Reader.readJsonFile(process.cwd() + "/" + "explorers.json");
+    const explorers = Reader.readJsonFile(process.cwd() + "/test/" + "explorers.json");
     const explorersInNode = ExplorerService.filterByMission(explorers, "node");
 
     test(" Testing 4th explorer in node ", () => {

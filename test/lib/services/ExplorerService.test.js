@@ -2,7 +2,7 @@ const ExplorerService = require("../../../lib/services/ExplorerService");
 const Reader = require("../../../lib/utils/Reader");
 
 describe("Test for ExplorerSeviceClass ", () => {
-    const explorers = Reader.readJsonFile(process.cwd() + "/" + "explorers.json");
+    const explorers = Reader.readJsonFile(process.cwd() + "/test/" + "explorers.json");
 
     test("Explorers in Node ", () => {
         ExplorerService.filterByMission(explorers, "node").forEach((element) => {
